@@ -1,7 +1,4 @@
-import authorization from './authorization'
-import { schemaValidations } from './shemaValidations'
+import authorization from './authorization';
+import { validationDto } from './validationDto';
 
-export {
-    authorization,
-    schemaValidations
-}
+export { authorization, validationDto };

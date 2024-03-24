@@ -8,9 +8,6 @@ import routes from './Routes';
   const { PORT } = env;
   await AppDataSource.initialize();
   routes(app);
-
-  if (true === 1) console.log('hola');
-
   await app.listen(PORT, () =>
     console.log(`API Corriendo Por El Puerto :${PORT}`)
   );

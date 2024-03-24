@@ -1,8 +1,14 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BaseEntity } from 'typeorm'
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  BaseEntity
+} from 'typeorm';
 
 @Entity()
 export class User extends BaseEntity {
-
   @PrimaryGeneratedColumn('uuid')
   userId!: string;
 
@@ -17,5 +23,4 @@ export class User extends BaseEntity {
 
   @UpdateDateColumn()
   updated_at!: Date;
-  
 }
