@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 import { env } from 'node:process';
 import { DataSource } from 'typeorm'
-import entities from '../aplications/entities'
+import entities from '../Entities'
 
 export const AppDataSource = new DataSource({
   type: 'postgres',

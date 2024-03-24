@@ -3,19 +3,19 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateCol
 @Entity()
 export class User extends BaseEntity {
 
-  @PrimaryGeneratedColumn('increment')
-  userId: string;
+  @PrimaryGeneratedColumn('uuid')
+  userId!: string;
 
   @Column({ unique: true })
-  email: string;
+  email!: string;
 
   @Column()
-  password: string;
+  password!: string;
 
   @CreateDateColumn()
-  created_at: Date;
+  created_at!: Date;
 
   @UpdateDateColumn()
-  updated_at: Date;
+  updated_at!: Date;
   
 }

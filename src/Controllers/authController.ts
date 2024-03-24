@@ -1,7 +1,8 @@
 import { Request, Response }  from 'express'
-import { User } from '../../aplications/entities/User'
-import HttpError from '../helpers/error'
-import { UserService } from '../../aplications/services/UserService'
+import { User } from '../Entities/User'
+import { BadRequest } from '../Helpers/errorstype'
+import { UserService } from '../Services/UserService'
+import { SendSuccess,SendError } from '../Helpers/responses'
 
 export class AuthController {
 
@@ -11,47 +12,47 @@ export class AuthController {
         this.userService = new UserService()
     }
 
-    async SignUp( req:Request, res:Response ) {
+    public SignUp = async( req:Request, res:Response ) => {
 
         try {
         
             const { email,password } = req.body
             const result = await this.userService.findOneByEmail( email)
-            if( result ) throw new Error('email already registered')
+            if( result )  throw new BadRequest('email already registered')
 
             const user = new User()
                   user.email  = email
                   user.password =  await this.userService.HashPassword( password )
 
             await this.userService.Create( user )
-            res.status(200).json({ message:"SignUp Success."})
+            SendSuccess(res,{ message:"SignUp Success."})
 
         } catch ( error ) {           
-            const { statusCode,response } = HttpError( error ) 
-            res.status( statusCode ).json( response )
+            SendError( res,error )
         }
 
     }
 
-    async SignIn( req:Request, res:Response ) {
+    public SignIn = async ( req:Request, res:Response ) => {
 
         try {
         
             const { email,password } = req.body
 
             const user = await this.userService.findOneByEmail( email )
-            if(! user ) throw new Error('Unauthorized access.')
+            if(! user ) throw new BadRequest('Unauthorized access.')
 
             const equalPassword = await this.userService.ComparePassword( password, user.password )
-            if(!equalPassword) throw new Error('Unauthorized access.')
+            if(!equalPassword) throw new BadRequest('Unauthorized access.')
 
             const { userId, created_at } = user
             const token =  this.userService.GenerateToken( { userId,created_at} )
-            res.status(200).cookie('token', token ).json({ message : 'success', token }) 
+
+            res.cookie('token', token ).setHeader('token',token)
+            SendSuccess(res,{ message : 'SignIn Success'})
 
         } catch ( error ) {           
-            const { statusCode,response } = HttpError( error ) 
-            res.status( statusCode ).json( response )
+           SendError(res, error )
         }
     } 
 
