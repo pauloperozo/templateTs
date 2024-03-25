@@ -2,47 +2,43 @@ import { Request, Response } from 'express';
 import { User } from '../Entities/User';
 import { BadRequest } from '../Helpers/errorstype';
 import { UserService } from '../Services/UserService';
+import { PasswordService } from '../Services/PasswordService';
+import { TokenService } from '../Services/TokenService';
 import { SendSuccess, SendError } from '../Helpers/responses';
 
 export class AuthController {
-  private userService;
-
-  constructor() {
-    this.userService = new UserService();
-  }
-
-  public SignUp = async (req: Request, res: Response) => {
+  static SignUp = async (req: Request, res: Response) => {
     try {
       const { email, password } = req.body;
-      const result = await this.userService.findOneByEmail(email);
+      const result = await UserService.findOneByEmail(email);
       if (result) throw new BadRequest('email already registered');
 
       const user = new User();
       user.email = email;
-      user.password = await this.userService.HashPassword(password);
+      user.password = await PasswordService.HashPassword(password);
 
-      await this.userService.Create(user);
+      await UserService.Create(user);
       SendSuccess(res, { message: 'SignUp Success.' });
     } catch (error) {
       SendError(res, error);
     }
   };
 
-  public SignIn = async (req: Request, res: Response) => {
+  static SignIn = async (req: Request, res: Response) => {
     try {
       const { email, password } = req.body;
 
-      const user = await this.userService.findOneByEmail(email);
+      const user = await UserService.findOneByEmail(email);
       if (!user) throw new BadRequest('Unauthorized access.');
 
-      const equalPassword = await this.userService.ComparePassword(
+      const equalPassword = await PasswordService.ComparePassword(
         password,
         user.password
       );
       if (!equalPassword) throw new BadRequest('Unauthorized access.');
 
       const { userId, created_at } = user;
-      const token = this.userService.GenerateToken({ userId, created_at });
+      const token = TokenService.GenerateToken({ userId, created_at });
 
       res.cookie('token', token).setHeader('token', token);
       SendSuccess(res, { message: 'SignIn Success' });
