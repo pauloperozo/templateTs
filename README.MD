@@ -1,8 +1,8 @@
-## Hfc-express-api
-
 <p align="center">
-  <a href="" target="blank"><img src="https://miro.medium.com/v2/resize:fit:900/0*foMyEI_p9itich5y.png" width="200" alt="Wordle Logo" /></a>
+  <a href="" target="blank"><img src="https://miro.medium.com/v2/resize:fit:900/0*foMyEI_p9itich5y.png" width="300" alt="Wordle Logo" /></a>
 </p>
+
+### Hfc-express-api
 
 ## Description
 
