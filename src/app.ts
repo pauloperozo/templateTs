@@ -2,7 +2,7 @@ import { Application, json, urlencoded, static as static_ } from 'express';
 import logger from 'morgan';
 import cors from 'cors';
 import cookies from 'cookie-parser';
-import { swaggerRoute } from './doc/swagger';
+import { swaggerRoute } from './Docs/swagger';
 import { clientErrorHandler } from './Middlewares/clientErrorHandler';
 
 export function setConfig(app: Application) {

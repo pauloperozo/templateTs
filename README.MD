@@ -23,7 +23,6 @@ $ npm run dev
 # production mode
 $ npm run start
 
-
 # Build
 $ npm run build
 ```
@@ -33,6 +32,13 @@ $ npm run build
 ```bash
 # unit tests
 $ npm run test
+```
+
+## Docs
+
+```bash
+# swagger
+$ http://domain:port/docs
 ```
 
 <p align="center">
