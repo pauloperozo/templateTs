@@ -17,7 +17,7 @@ export function clientErrorHandler(error: Error, req: Request, res: Response, ne
         const type = colors.bold(error.getType());
         const message = colors.gray(error.message);
         console.error(`${statusCode} ${type}:${message}`);
-        res.status(error.getStatusCode()).json({ message });
+        res.status(error.getStatusCode()).json({ message: error.message });
     } else {
         const title = colors.bold(error.name);
         const message = colors.red(error.message);
