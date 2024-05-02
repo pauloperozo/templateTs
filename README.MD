@@ -1,7 +1,7 @@
 ## Hfc-express-api
 
 <p align="center">
-  <a href="" target="blank"><img src="https://images.squarespace-cdn.com/content/v1/5d1ea2be4d6d79000127d718/df82cb07-cecb-4ac5-9998-25ee1a5499d6/holafly-como-funciona-cuanto-cuesta.png" width="200" alt="Wordle Logo" /></a>
+  <a href="" target="blank"><img src="https://miro.medium.com/v2/resize:fit:900/0*foMyEI_p9itich5y.png" width="200" alt="Wordle Logo" /></a>
 </p>
 
 ## Description
@@ -34,12 +34,6 @@ $ npm run build
 # unit tests
 $ npm run test
 ```
-
-## Developer
-
--   Author - paulo perozo
--   Website - https://www.linkedin.com/in/paulo-perozo-0738a4240/
--   Twitter - https://twitter.com/PauloPerozo
 
 <p align="center">
   <a href="" target="blank"><img src="https://www.artistapirata.com/wp-content/uploads/2018/12/programas-full-linux-descargar-programas-linux-300x181.jpg" width="200" alt="zzzz" /></a>
