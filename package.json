@@ -14,6 +14,7 @@
     "license": "ISC",
     "dependencies": {
         "@decorators/express": "^3.0.0",
+        "@inversify-cn/swagger-express-ts": "^1.1.11",
         "bcryptjs": "^2.4.3",
         "class-validator": "^0.14.1",
         "cookie-parser": "^1.4.6",
@@ -28,6 +29,8 @@
         "npm": "^10.6.0",
         "pg": "^8.11.3",
         "reflect-metadata": "^0.2.2",
+        "swagger-jsdoc": "^6.2.8",
+        "swagger-ui-express": "^5.0.0",
         "typeorm": "^0.3.20"
     },
     "devDependencies": {
@@ -41,6 +44,8 @@
         "@types/moment": "^2.13.0",
         "@types/morgan": "^1.9.4",
         "@types/node": "^20.11.28",
+        "@types/swagger-jsdoc": "^6.0.4",
+        "@types/swagger-ui-express": "^4.1.6",
         "@typescript-eslint/eslint-plugin": "^6.21.0",
         "eslint": "^8.57.0",
         "eslint-config-standard-with-typescript": "^43.0.1",

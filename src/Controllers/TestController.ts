@@ -6,6 +6,7 @@ import { inject } from 'inversify';
 @controller('/test')
 export class TestController {
     constructor(@inject('TestService') private testService: TestService) {}
+
     @httpGet('/')
     getInfo(res: Response, next: NextFunction) {
         try {
