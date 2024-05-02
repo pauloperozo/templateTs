@@ -2,12 +2,12 @@ import 'dotenv/config';
 import 'reflect-metadata';
 import { InversifyExpressServer } from 'inversify-express-utils';
 import { DIC } from './DIC/inversify.config';
-import { env } from 'node:process';
 import { setConfig, setErrorConfig } from './app';
+import config from './config';
 import './Controllers';
 
 (async (_) => {
-    const { PORT } = env;
+    const { port } = config.server;
     const server = new InversifyExpressServer(DIC);
-    server.setConfig(setConfig).setErrorConfig(setErrorConfig).build().listen(PORT);
+    server.setConfig(setConfig).setErrorConfig(setErrorConfig).build().listen(port);
 })();
