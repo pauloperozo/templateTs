@@ -4,19 +4,19 @@
   <a href="" target="blank"><img src="https://miro.medium.com/v2/resize:fit:900/0*foMyEI_p9itich5y.png" width="350" alt="Wordle Logo" /></a>
 </p>
 
-# Proyecto "Hfc-express-api" :rocket:
+# Proyect Hfc-express-api :rocket:
 
-## Description
+## Description :blue_book:
 
 Este es un template de prueba que utiliza Node.js, TypeScript, TypeORM y PostgreSQL entre otros...
 
-## Installation
+## Installation :technologist:
 
 ```bash
 $ npm install
 ```
 
-## Running
+## Running :package:
 
 ```bash
 # development
@@ -29,14 +29,14 @@ $ npm run start
 $ npm run build
 ```
 
-## Test
+## Test :white_check_mark:
 
 ```bash
 # unit tests
 $ npm run test
 ```
 
-## Docs
+## Docs 📋
 
 ```bash
 # swagger
