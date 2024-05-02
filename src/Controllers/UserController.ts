@@ -10,7 +10,8 @@ export class UserController {
     @httpGet('/:userid/getCards')
     getCards(req: Request, res: Response, next: NextFunction) {
         try {
-            return this.userService.toBeImplement();
+            const { userid } = req.params;
+            return this.userService.getCards(userid);
         } catch (error) {
             next(error);
         }
@@ -20,7 +21,7 @@ export class UserController {
     getCardsProvider(req: Request, res: Response, next: NextFunction) {
         try {
             const { userid } = req.params;
-            return this.userService.toBeImplement();
+            return this.userService.getCardsProvider(userid);
         } catch (error) {
             next(error);
         }
@@ -29,8 +30,8 @@ export class UserController {
     @httpGet('/:userid/getCard/:iccid')
     getCard(req: Request, res: Response, next: NextFunction) {
         try {
-            const { userid } = req.params;
-            return this.userService.toBeImplement();
+            const { userid, iccid } = req.params;
+            return this.userService.getCard(userid, iccid);
         } catch (error) {
             next(error);
         }
@@ -40,7 +41,7 @@ export class UserController {
     getkyc(req: Request, res: Response, next: NextFunction) {
         try {
             const { userid, cardid } = req.params;
-            return this.userService.toBeImplement();
+            return this.userService.getkyc(userid, cardid);
         } catch (error) {
             next(error);
         }
@@ -50,17 +51,17 @@ export class UserController {
     getInfo(req: Request, res: Response, next: NextFunction) {
         try {
             const { userid } = req.params;
-            return this.userService.toBeImplement();
+            return this.userService.getInfo(userid);
         } catch (error) {
             next(error);
         }
     }
 
-    @httpGet('/:userId/qr/:cardId')
+    @httpGet('/:userid/qr/:cardId')
     getQrCard(req: Request, res: Response, next: NextFunction) {
         try {
             const { userid, cardid } = req.params;
-            return this.userService.toBeImplement();
+            return this.userService.getQrCard(userid, cardid);
         } catch (error) {
             next(error);
         }
@@ -70,7 +71,7 @@ export class UserController {
     getUserQr(req: Request, res: Response, next: NextFunction) {
         try {
             const { email } = req.params;
-            return this.userService.toBeImplement();
+            return this.userService.getUserQr(email);
         } catch (error) {
             next(error);
         }
@@ -80,7 +81,7 @@ export class UserController {
     getNextState(req: Request, res: Response, next: NextFunction) {
         try {
             const { iccid } = req.params;
-            return this.userService.toBeImplement();
+            return this.userService.getNextState(iccid);
         } catch (error) {
             next(error);
         }
@@ -90,7 +91,7 @@ export class UserController {
     getState(req: Request, res: Response, next: NextFunction) {
         try {
             const { iccid } = req.params;
-            return this.userService.toBeImplement();
+            return this.userService.getState(iccid);
         } catch (error) {
             next(error);
         }
@@ -100,17 +101,17 @@ export class UserController {
     getProfileInfo(req: Request, res: Response, next: NextFunction) {
         try {
             const { userid } = req.params;
-            return this.userService.toBeImplement();
+            return this.userService.getProfileInfo(userid);
         } catch (error) {
             next(error);
         }
     }
 
-    @httpGet('/:userId/manualActivation/:iccid')
+    @httpGet('/:userid/manualActivation/:iccid')
     getManualActivation(req: Request, res: Response, next: NextFunction) {
         try {
             const { userid, iccid } = req.params;
-            return this.userService.toBeImplement();
+            return this.userService.getManualActivation(userid, iccid);
         } catch (error) {
             next(error);
         }
@@ -119,7 +120,7 @@ export class UserController {
     @httpPost('/signUpWithPhone')
     signUpWithPhone(req: Request, res: Response, next: NextFunction) {
         try {
-            return this.userService.toBeImplement();
+            return this.userService.signUpWithPhone();
         } catch (error) {
             next(error);
         }
@@ -128,7 +129,7 @@ export class UserController {
     @httpPost('/signUp')
     signUp(req: Request, res: Response, next: NextFunction) {
         try {
-            return this.userService.toBeImplement();
+            return this.userService.signUp();
         } catch (error) {
             next(error);
         }
@@ -137,7 +138,7 @@ export class UserController {
     @httpPost('/registerNewMail')
     registerNewMail(req: Request, res: Response, next: NextFunction) {
         try {
-            return this.userService.toBeImplement();
+            return this.userService.registerNewMail();
         } catch (error) {
             next(error);
         }
@@ -146,7 +147,7 @@ export class UserController {
     @httpPost('/signIn')
     signIn(req: Request, res: Response, next: NextFunction) {
         try {
-            return this.userService.toBeImplement();
+            return this.userService.signIn();
         } catch (error) {
             next(error);
         }
@@ -155,7 +156,7 @@ export class UserController {
     @httpPost('/signInWithApple')
     signInWithApple(req: Request, res: Response, next: NextFunction) {
         try {
-            return this.userService.toBeImplement();
+            return this.userService.signInWithApple();
         } catch (error) {
             next(error);
         }
@@ -164,7 +165,7 @@ export class UserController {
     @httpPost('/signInWithGoogle')
     signInWithGoogle(req: Request, res: Response, next: NextFunction) {
         try {
-            return this.userService.toBeImplement();
+            return this.userService.signInWithGoogle();
         } catch (error) {
             next(error);
         }
@@ -173,7 +174,9 @@ export class UserController {
     @httpPost('/updateProfileInfo/:userid')
     updateProfileInfo(req: Request, res: Response, next: NextFunction) {
         try {
-            return this.userService.toBeImplement();
+            const { userid } = req.params;
+
+            return this.userService.updateProfileInfo(userid);
         } catch (error) {
             next(error);
         }

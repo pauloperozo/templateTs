@@ -17,6 +17,7 @@
         "@inversify-cn/swagger-express-ts": "^1.1.11",
         "bcryptjs": "^2.4.3",
         "class-validator": "^0.14.1",
+        "colors": "^1.4.0",
         "cookie-parser": "^1.4.6",
         "cors": "2.8.5",
         "dotenv": "^16.4.5",

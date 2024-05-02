@@ -1,18 +1,19 @@
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
-import { Application } from 'express';
+import { Router } from 'express';
 import { Definition } from './definition';
 
-const swaggerOptions = {
-    swaggerDefinition: Definition,
-    apis: ['src/doc/*ts']
-};
+export const swaggerRoute = (path: string) => {
+    const swaggerOptions = {
+        swaggerDefinition: Definition,
+        apis: ['src/doc/*ts']
+    };
 
-const swaggerSpec = swaggerJSDoc(swaggerOptions);
+    const swaggerSpec = swaggerJSDoc(swaggerOptions);
 
-export const swaggerDocs = (app: Application) => {
-    app.use(
-        '/docs',
+    const router = Router();
+    return router.use(
+        path,
         swaggerUi.serve,
         swaggerUi.setup(swaggerSpec, {
             explorer: true,

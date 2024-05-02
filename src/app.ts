@@ -2,14 +2,18 @@ import { Application, json, urlencoded, static as static_ } from 'express';
 import logger from 'morgan';
 import cors from 'cors';
 import cookies from 'cookie-parser';
-import { swaggerDocs } from './doc/swagger';
+import { swaggerRoute } from './doc/swagger';
+import { clientErrorHandler } from './Middlewares/clientErrorHandler';
 
-export function ExpressServer(app: Application) {
+export function setConfig(app: Application) {
     app.use(cors());
     app.use(logger('dev'));
     app.use(json({ limit: '50mb' }));
     app.use(cookies());
     app.use(urlencoded({ limit: '50mb', extended: true }));
-    app.use('/', static_('swagger'));
-    swaggerDocs(app);
+    app.use(swaggerRoute('/docs'));
+}
+
+export function setErrorConfig(app: Application) {
+    app.use(clientErrorHandler);
 }
