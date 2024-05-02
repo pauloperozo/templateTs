@@ -1,8 +1,10 @@
+## Proyecto "Hfc-express-api" :rocket:
+
+<p align="right"> <img src="https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green"></p>
+
 <p align="center">
   <a href="" target="blank"><img src="https://miro.medium.com/v2/resize:fit:900/0*foMyEI_p9itich5y.png" width="350" alt="Wordle Logo" /></a>
 </p>
-
-# Hfc-express-api
 
 ## Description
 
