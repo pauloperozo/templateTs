@@ -38,7 +38,7 @@ $ npm run test
 
 ```bash
 # swagger
-$ http://domain:port/docs
+[GET] [http/https]://domain:port/docs
 ```
 
 <p align="center">
