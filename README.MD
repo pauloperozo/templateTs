@@ -1,7 +1,7 @@
 ## Hfc-express-api
 
 <p align="center">
-  <a href="" target="blank"><img src="https://es.wikipedia.org/wiki/Holafly#/media/Archivo:Holafly-logo.svg" width="200" alt="Wordle Logo" /></a>
+  <a href="" target="blank"><img src="https://images.squarespace-cdn.com/content/v1/5d1ea2be4d6d79000127d718/df82cb07-cecb-4ac5-9998-25ee1a5499d6/holafly-como-funciona-cuanto-cuesta.png" width="200" alt="Wordle Logo" /></a>
 </p>
 
 ## Description
