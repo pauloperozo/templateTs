@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import 'reflect-metadata';
 import { InversifyExpressServer } from 'inversify-express-utils';
-import { DIC } from './DIC/inversify.config';
+import { DIC } from './DIC/inversifyConfig';
 import { setConfig, setErrorConfig } from './app';
 import config from './config';
 import './Controllers';

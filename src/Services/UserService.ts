@@ -62,7 +62,9 @@ export class UserService {
         throw new NotFound('To Be Implement');
     }
 
-    signIn() {
+    signIn(email: string, verificationCode: string) {
+        console.log(email);
+        console.log(verificationCode);
         throw new NotFound('To Be Implement');
     }
 

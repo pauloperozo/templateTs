@@ -13,15 +13,22 @@ export function clientErrorHandler(error: Error, req: Request, res: Response, ne
         error instanceof TypeError.Unauthorized;
 
     if (isInstance) {
-        const statusCode = colors.yellow(error.getStatusCode().toString());
-        const type = colors.bold(error.getType());
-        const message = colors.gray(error.message);
-        console.error(`${statusCode} ${type}:${message}`);
-        res.status(error.getStatusCode()).json({ message: error.message });
+        const { message } = error;
+        const content = error.getContent();
+        const statusCode = error.getStatusCode();
+        const type = error.getType();
+
+        const outStatusCode = colors.yellow(statusCode.toString());
+        const outType = colors.bold(type);
+        const outMessage = colors.gray(message);
+        console.error(`${outStatusCode} ${outType}:${outMessage}`);
+
+        res.status(error.getStatusCode()).json({ message, content });
     } else {
-        const title = colors.bold(error.name);
-        const message = colors.red(error.message);
-        console.error(`${title}: ${message}`);
+        const { message, name } = error;
+        const outName = colors.bold(name);
+        const outMessage = colors.red(message);
+        console.error(`${outName}: ${outMessage}`);
         res.status(503).json({ message: 'Internal Error' });
     }
 }

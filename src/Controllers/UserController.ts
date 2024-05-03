@@ -1,6 +1,8 @@
 import { controller, httpGet, httpPost } from 'inversify-express-utils';
 import { Request, Response } from 'express';
 import { UserService } from '../Services/UserService';
+import validationDto from '../Middlewares/validationDto';
+import { signinDto } from '../Dtos/authDto';
 import { inject } from 'inversify';
 
 @controller('/user')
@@ -88,9 +90,10 @@ export class UserController {
         return this.userService.registerNewMail();
     }
 
-    @httpPost('/signIn')
+    @httpPost('/signIn', validationDto(signinDto))
     signIn(req: Request, res: Response) {
-        return this.userService.signIn();
+        const { email, verificationCode } = req.body;
+        return this.userService.signIn(email, verificationCode);
     }
 
     @httpPost('/signInWithApple')
