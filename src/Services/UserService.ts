@@ -54,7 +54,7 @@ export class UserService {
         throw new NotFound('To Be Implement');
     }
 
-    signUp() {
+    signUp(email: string) {
         throw new NotFound('To Be Implement');
     }
 
