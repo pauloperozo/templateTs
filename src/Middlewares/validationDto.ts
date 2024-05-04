@@ -1,4 +1,4 @@
-import e, { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { isArray, validateOrReject } from 'class-validator';
 import { BadRequest } from '../Helpers/typeError';
 

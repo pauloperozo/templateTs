@@ -1,43 +1,43 @@
 import { controller, httpGet, httpPost } from 'inversify-express-utils';
 import { Request, Response } from 'express';
-import { UserService } from '../Services/UserService';
+import { AuthService } from '../Services/AuthService';
 import validationDto from '../Middlewares/validationDto';
 import { signInDto, signUpDto } from '../Dtos/authDto';
 import { inject } from 'inversify';
 
 @controller('/user')
 export class AuthController {
-    constructor(@inject('UserService') private userService: UserService) {}
+    constructor(@inject('AuthService') private authService: AuthService) {}
 
     @httpPost('/signUp', validationDto(signUpDto))
     signUp(req: Request, res: Response) {
         const { email } = req.body;
-        return this.userService.signUp(email);
+        return this.authService.signUp(email);
+    }
+
+    @httpPost('/signUpWithPhone', validationDto(signUpDto))
+    signUpWithPhone(req: Request, res: Response) {
+        return this.authService.signUpWithPhone();
+    }
+
+    @httpPost('/registerNewMail', validationDto(signUpDto))
+    registerNewMail(req: Request, res: Response) {
+        return this.authService.registerNewMail();
     }
 
     @httpPost('/signIn', validationDto(signInDto))
     signIn(req: Request, res: Response) {
         const { email, verificationCode } = req.body;
-        return this.userService.signIn(email, verificationCode);
+        return this.authService.signIn(email, verificationCode);
     }
 
-    @httpPost('/signUpWithPhone')
-    signUpWithPhone(req: Request, res: Response) {
-        return this.userService.signUpWithPhone();
-    }
-
-    @httpPost('/registerNewMail')
-    registerNewMail(req: Request, res: Response) {
-        return this.userService.registerNewMail();
-    }
-
-    @httpPost('/signInWithApple')
+    @httpPost('/signInWithApple', validationDto(signInDto))
     signInWithApple(req: Request, res: Response) {
-        return this.userService.signInWithApple();
+        return this.authService.signInWithApple();
     }
 
-    @httpPost('/signInWithGoogle')
+    @httpPost('/signInWithGoogle', validationDto(signInDto))
     signInWithGoogle(req: Request, res: Response) {
-        return this.userService.signInWithGoogle();
+        return this.authService.signInWithGoogle();
     }
 }

@@ -3,10 +3,14 @@ import { injectable } from 'inversify';
 import { NotFound } from '../Helpers/typeError';
 
 @injectable()
-export class UserService {
+export class ProfileService {
     constructor() {}
 
-    getInfo(userid: string) {
+    getProfileInfo(userid: string) {
+        throw new NotFound('To Be Implement');
+    }
+
+    updateProfileInfo(userid: string) {
         throw new NotFound('To Be Implement');
     }
 }

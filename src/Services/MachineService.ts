@@ -3,10 +3,14 @@ import { injectable } from 'inversify';
 import { NotFound } from '../Helpers/typeError';
 
 @injectable()
-export class UserService {
+export class MachineService {
     constructor() {}
 
-    getInfo(userid: string) {
+    getNextState(iccid: string) {
+        throw new NotFound('To Be Implement');
+    }
+
+    getState(iccid: string) {
         throw new NotFound('To Be Implement');
     }
 }

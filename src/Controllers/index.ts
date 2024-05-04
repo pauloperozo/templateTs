@@ -1,4 +1,6 @@
 import './TestController';
 import './AuthController';
 import './UserController';
-import './KycController';
+import './ProfileController';
+import './MachineController';
+import './CardController';
