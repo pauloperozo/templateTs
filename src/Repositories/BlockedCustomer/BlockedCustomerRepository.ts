@@ -1,13 +1,13 @@
 import { dbCustomers } from '@holafly/core';
 import DatabaseCore from '../Database/DatabaseCore';
 import { Model } from 'sequelize/types';
-const { CustomerProfile } = dbCustomers;
+const { BlockedCustomer } = dbCustomers;
 
-export class CustomerProfileRepository
+export class BlockedCustomerRepository
     extends DatabaseCore<Model>
-    implements ICustomerProfileRepository
+    implements IBlockedCustomerRepository
 {
     constructor() {
-        super(CustomerProfile);
+        super(BlockedCustomer);
     }
 }

@@ -1,11 +1,8 @@
-import { Model, ModelCtor } from 'sequelize';
+import { Model, ModelCtor } from 'sequelize/types';
 import { MakeNullishOptional } from 'sequelize/types/utils';
 
-export default abstract class DatabaseManager<T extends Model> {
-    private model: ModelCtor<T>;
-    constructor(model: ModelCtor<T>) {
-        this.model = model;
-    }
+export default abstract class DatabaseCore<T extends Model> {
+    constructor(private model: ModelCtor<T>) {}
     async init() {}
 
     async end() {}

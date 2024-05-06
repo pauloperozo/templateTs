@@ -1,6 +1,12 @@
-import ICustomerRepository from './ICustomerRepository';
+import { dbCustomers } from '@holafly/core';
+import DatabaseCore from '../Database/DatabaseCore';
+import { Model } from 'sequelize/types';
+const { Customer } = dbCustomers;
 
-export class CustomerRepository implements ICustomerRepository {
+export class CustomerRepository extends DatabaseCore<Model> implements ICustomerRepository {
+    constructor() {
+        super(Customer);
+    }
     getByCustomerId(customerId: string) {
         throw new Error('Method not implemented.');
     }
@@ -8,15 +14,9 @@ export class CustomerRepository implements ICustomerRepository {
         throw new Error('Method not implemented.');
     }
     updateCustomerEmail(id: string, newEmail: string) {
-        throw new Error('Method not implemented.');
-    }
-    getOne(filter: object) {
-        throw new Error('Method not implemented.');
+        throw new Error('sMethod not implemented.');
     }
     batchDelete(taskQueue: any) {
-        throw new Error('Method not implemented.');
-    }
-    update(id: string, data: object) {
         throw new Error('Method not implemented.');
     }
     transaction(taskQueue: any) {
