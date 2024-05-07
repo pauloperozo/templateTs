@@ -1,5 +1,21 @@
-/node_modules
-.env
+# Node
+node_modules
+
+# Env Variables
+.env*
+!.env.example
+
+# package-lock
+coverage/*
+
+# VScode
+.vscode
+tsconfig.json
+.vercel
+.env*.local
+
+# Logs
+holi.logs
 
 dist/*
 !dist/.gitkeep 
