@@ -1,8 +1,7 @@
 import { Container } from 'inversify';
-import { CustomerRepository } from 'src/Repositories/Customer/CustomerRepository';
+import { CustomerRepository } from '../Repositories/Customer/CustomerRepository';
+import { TYPES } from './types';
 
 export default (DIC: Container) => {
-    //    DIC.bind('CustomerRepository').to(CustomerRepository);
-
-    DIC.bind<ICustomerRepository>('CustomerRepository').to(CustomerRepository);
+    DIC.bind(TYPES.CustomerRepository).to(CustomerRepository);
 };

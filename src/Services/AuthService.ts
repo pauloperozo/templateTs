@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import { injectable, inject } from 'inversify';
 import { NotFound } from '../Helpers/typeError';
 import { TYPES } from 'src/DIC/types';
+import { ICustomerRepository } from '../Repositories/Customer/ICustomerRepository';
 
 @injectable()
 export class AuthService {

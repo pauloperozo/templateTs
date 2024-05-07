@@ -1,4 +1,4 @@
-interface ICustomerRepository {
+export interface ICustomerRepository {
     getByCustomerId(customerId: string): any;
     getCustomerByEmail(email: string): any;
     updateCustomerEmail(id: string, newEmail: string): any;

@@ -1,5 +1,4 @@
 import { Container } from 'inversify';
-import config from '../config';
 import './loadControllers';
 import loadServices from './loadServices';
 import loadRepositories from './loadRepositories';

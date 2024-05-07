@@ -1,5 +1,6 @@
-import { dbCustomers } from '@holafly/core';
+import { ICustomerRepository } from './ICustomerRepository';
 import DatabaseCore from '../Database/DatabaseCore';
+import { dbCustomers } from '@holafly/core';
 import { Model } from 'sequelize/types';
 const { Customer } = dbCustomers;
 
