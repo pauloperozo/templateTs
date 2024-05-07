@@ -1,13 +1,17 @@
 import 'reflect-metadata';
-import { injectable } from 'inversify';
+import { injectable, inject } from 'inversify';
 import { NotFound } from '../Helpers/typeError';
+import { TYPES } from 'src/DIC/types';
 
 @injectable()
 export class AuthService {
-    constructor() {}
+    constructor(
+        @inject(TYPES.CustomerRepository) private customerRepository: ICustomerRepository
+    ) {}
 
-    signUp(email: string) {
-        throw new NotFound('To Be Implement');
+    async signUp(email: string) {
+        const result = await this.customerRepository.getOne({ email });
+        return result;
     }
 
     signIn(email: string, verificationCode: string) {
