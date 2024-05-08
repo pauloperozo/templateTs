@@ -19,3 +19,6 @@ holi.logs
 
 dist/*
 !dist/.gitkeep 
+
+package.json
+package-lock.json
