@@ -1,8 +1,8 @@
 import 'reflect-metadata';
+import { ICustomerRepository } from '../Repositories/Customer/ICustomerRepository';
 import { injectable, inject } from 'inversify';
 import { NotFound } from '../Helpers/typeError';
-import { TYPES } from 'src/DIC/types';
-import { ICustomerRepository } from '../Repositories/Customer/ICustomerRepository';
+import { TYPES } from '../DIC/types';
 
 @injectable()
 export class AuthService {
@@ -11,7 +11,7 @@ export class AuthService {
     ) {}
 
     async signUp(email: string) {
-        const result = await this.customerRepository.getOne({ email });
+        const result = await this.customerRepository.getCustomerByEmail(email);
         return result;
     }
 

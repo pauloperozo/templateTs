@@ -1,8 +1,10 @@
 import { Model, ModelCtor } from 'sequelize/types';
 import { MakeNullishOptional } from 'sequelize/types/utils';
+import { injectable, unmanaged } from 'inversify';
 
+@injectable()
 export default abstract class DatabaseCore<T extends Model> {
-    constructor(private model: ModelCtor<T>) {}
+    constructor(@unmanaged() private model: ModelCtor<T>) {}
     async init() {}
 
     async end() {}

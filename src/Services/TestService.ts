@@ -1,9 +1,17 @@
 import 'reflect-metadata';
-import { injectable } from 'inversify';
+import { injectable, inject } from 'inversify';
+import { TYPES } from '../DIC/types';
+import { ITestRepository } from '../Repositories/TestRepositories/ITestRepository';
 
 @injectable()
 export class TestService {
-    getInfo() {
-        return { message: 'Hfc-express-api' };
+    constructor(@inject(TYPES.TestRepository) private testRepository: ITestRepository) {}
+    getServiceTest() {
+        return { message: 'Test Service checked.' };
+    }
+
+    getMessageRepository() {
+        const message = this.testRepository.getMessageRepository();
+        return { message };
     }
 }
