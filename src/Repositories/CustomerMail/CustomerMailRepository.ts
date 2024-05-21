@@ -7,4 +7,9 @@ export class CustomerMailRepository extends DatabaseCore<Model> implements ICust
     constructor() {
         super(CustomerMail);
     }
+
+    getByCustomerId(customerId: string) {
+
+    }
+
 }

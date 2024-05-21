@@ -5,9 +5,11 @@ const { CustomerProfile } = dbCustomers;
 
 export class CustomerProfileRepository
     extends DatabaseCore<Model>
-    implements ICustomerProfileRepository
-{
+    implements ICustomerProfileRepository {
     constructor() {
         super(CustomerProfile);
+    }
+    getByCustomerId(customerId: string) {
+        throw new Error('Method not implemented.');
     }
 }

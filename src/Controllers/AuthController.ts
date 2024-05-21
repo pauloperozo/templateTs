@@ -7,7 +7,7 @@ import { inject } from 'inversify';
 
 @controller('/user')
 export class AuthController {
-    constructor(@inject('AuthService') private authService: AuthService) {}
+    constructor(@inject('AuthService') private authService: AuthService) { }
 
     @httpPost('/signUp', validationDto(signUpDto))
     signUp(req: Request, res: Response) {

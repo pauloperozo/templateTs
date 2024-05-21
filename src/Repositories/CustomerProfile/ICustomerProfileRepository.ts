@@ -1,1 +1,3 @@
-interface ICustomerProfileRepository {}
+interface ICustomerProfileRepository {
+    getByCustomerId(customerId: string): any
+}

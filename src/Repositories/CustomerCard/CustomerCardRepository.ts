@@ -7,4 +7,7 @@ export class CustomerCardRepository extends DatabaseCore<Model> implements ICust
     constructor() {
         super(CustomerCard);
     }
+    async getByIccid(iccid: string) {
+        return this.getOne({ where: { iccid } })
+    }
 }

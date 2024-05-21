@@ -1,1 +1,5 @@
-interface ICustomerCardRepository {}
+interface ICustomerCardRepository {
+
+    getByIccid(iccid: string): any
+
+}

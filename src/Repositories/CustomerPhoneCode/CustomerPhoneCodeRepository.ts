@@ -5,9 +5,11 @@ const { CustomerPhoneCode } = dbCustomers;
 
 export class CustomerPhoneCodeRepository
     extends DatabaseCore<Model>
-    implements ICustomerMailRepository
-{
+    implements ICustomerMailRepository {
     constructor() {
         super(CustomerPhoneCode);
+    }
+    getByCustomerId(customerId: string) {
+        throw new Error('Method not implemented.');
     }
 }
